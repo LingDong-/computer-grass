@@ -8,7 +8,10 @@ Algorithmically generated typefaces simulating Chinese calligraphy. A parametric
 
 **The TrueType Fonts can be [downloaded](https://github.com/LingDong-/computer-grass/releases) for free personal use and free commercial use**. See COPYING.txt for details. 
 
-![](screenshots/006.gif)
+| | |
+|---|---|
+| ![](screenshots/006.gif) | ![](screenshots/007.gif) |
+
 
 ## Instructions
 
