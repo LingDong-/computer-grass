@@ -6,7 +6,7 @@ Algorithmically generated typefaces simulating Chinese calligraphy. A parametric
 
 真書之骨，假草之勢。原非其法，庶擬其意。抱愧古者，因命之曰**擬草體**。
 
-**The TrueType Fonts can be [downloaded]((https://github.com/LingDong-/computer-grass/releases)) for free personal use and free commercial use**. See COPYING.txt for details. 
+**The TrueType Fonts can be [downloaded](https://github.com/LingDong-/computer-grass/releases) for free personal use and free commercial use**. See COPYING.txt for details. 
 
 ![](screenshots/006.gif)
 
@@ -14,9 +14,9 @@ Algorithmically generated typefaces simulating Chinese calligraphy. A parametric
 
 You can download the fonts with preset styles from [Releases](https://github.com/LingDong-/computer-grass/releases). The fonts can be used with any program that supports TTF format. They're best set with top-to-bottom (TTL) layout.
 
-- [ComputerGrassRegular.ttf](https://github.com/LingDong-/computer-grass/releases)
-- [ComputerGrassRunning.ttf](https://github.com/LingDong-/computer-grass/releases)
-- [ComputerGrassGrass.ttf](https://github.com/LingDong-/computer-grass/releases)
+- [ComputerGrassRegular.ttf](https://github.com/LingDong-/computer-grass/releases) 擬草體·楷
+- [ComputerGrassRunning.ttf](https://github.com/LingDong-/computer-grass/releases) 擬草體·行
+- [ComputerGrassGrass.ttf](https://github.com/LingDong-/computer-grass/releases) 擬草體·草
 
 ### Generate from Scratch
 
