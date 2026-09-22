@@ -23,6 +23,11 @@ You can download the fonts with preset styles from [Releases](https://github.com
 - Install the [Dither programming language](https://github.com/LingDong-/dither-lang), and node.js
 - Preset script styles configs are available, e.g. `cfg.grass.json`. To create your own, copy one of the `cfg.*.json`, rename the `*` part and change the parameters.
 - Run `make [style]` (e.g. `make grass`) to build the font. Use `make all` to build all three presets, or substitute `[style]` with the name of your own config.
+- To preview a visualization of the generation process without writing to files, use (e.g.): 
+
+```
+dither -xvt c grass.dh show cfg.running.json
+```
 
 ### Parameters / How it works
 
