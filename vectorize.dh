@@ -1,0 +1,81 @@
+include "std/img"
+include "std/io"
+include "std/drw"
+include "std/geom"
+include "std/arr"
+include "std/list"
+include "std/exch"
+include "std/str"
+include "std/dict"
+include "std/sys"
+
+hz := str.decode(io.read_file("mmhz_trad.hershez.txt"),'utf-8').split("\n")
+
+func draw_polys(polys:list[list[vec[f32,2]]]){
+  drw.begin_shape();
+  for (i := 0; i < polys.length(); i++){
+    for (j := 0; j < polys[i].length(); j++){
+      drw.vertex(...polys[i][j].xy);
+    }
+    drw.next_contour(0);
+  }
+  drw.end_shape();
+  for (i := 0; i < polys.length(); i++){
+    for (j := 0; j < polys[i].length(); j++){
+      drw.circle(...polys[i][j].xy,2);
+    }
+  }
+}
+
+// drw.size(1024,1536)
+
+func proc(idx:i32){
+  // io.println(idx);
+  fid := (idx as str).pad(5,"0",str.LEADING);
+  pixels := img.decode(io.read_file("render/%{fid}.png"));
+  layer := arr.make(pixels.shape().xy,0 as u8)
+  for (i := 0; i < pixels.shape()[0]; i++){
+    for (j := 0; j < pixels.shape()[1]; j++){
+      r := (pixels[i,j,0] as f32)/255.0;
+      if (r < 0.75){
+        layer[i,j] = 1;
+      }
+    }
+  }
+
+  contours := img.find_contours(layer)
+
+  for (i := 0; i < contours.length(); i++){
+    contours[i] = geom.poly_simplify(contours[i],0.75);
+  }
+
+  // for(i:=0;i<500;i++){
+  //   draw_polys(contours)
+  //   e := drw.poll();
+  //   if (e.type==win.KEY_PRESSED&&e.key==' '){
+  //     break;
+  //   }
+  // }
+
+  Jk := exch.JSON{data:list[exch.JSON]{}};
+  for (i := 0; i < contours.length(); i++){
+    Jki := exch.JSON{data:list[exch.JSON]{}};
+    for (j := 0; j < contours[i].length(); j++){
+      (Jki.data as list[exch.JSON]).push(exch.JSON{data:list[exch.JSON]{
+        exch.JSON{data:contours[i][j].x},
+        exch.JSON{data:contours[i][j].y},
+      }});
+    }
+    (Jk.data as list[exch.JSON]).push(Jki);
+  }
+
+  io.write_file("contours/%{fid}.json",str.encode(exch.encode[exch.JSON](Jk),"utf-8"));
+}
+
+for (i:=0;i<hz.length();i++){
+  if (i % 100 == 0){
+    io.println("%{i}/%{hz.length()}");
+  }
+  proc(hz[i].slice(0,5) as i32);
+  sys.gc();
+}

@@ -1,0 +1,23 @@
+{
+  "do_circ_cap":1,
+  "min_needle":16,
+  "mul_needle":1.25,
+  "preshrink":0.92,
+  "slant":0.02,
+  "pincushion":0.0025,
+  "min_spread_x":0.775,
+  "min_spread_y":0.5,
+  "max_spread_x":1.025,
+  "max_spread_y":1.1,
+  "mul_spread_x":0.00375,
+  "mul_spread_y":0.0075,
+  "accel":0.01,
+  "damp":0.9,
+  "overtime":3,
+  "fpstroke":10,
+  "min_dip":-0.3,
+  "max_dip":0.15,
+  "pow_z":1.5,
+  "mul_z":0.2,
+  "add_z":0
+}

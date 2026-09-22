@@ -1,0 +1,7 @@
+*.ttf
+*.zip
+.DS_Store
+*/.DS_Store
+**/.DS_Store
+render/*.png
+contours/*.json
