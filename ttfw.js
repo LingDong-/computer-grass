@@ -163,11 +163,11 @@ function encode_ttf(info,glyphs,kerning){
   tbl.cmap.push(0,0);
   tbl.cmap.push(0,2);
   const CMAP_SUB_OFFSET = 4 + 2*8;
-  tbl.cmap.push(0,3);
-  tbl.cmap.push(0,1);
-  tbl.cmap.push(...u32(CMAP_SUB_OFFSET));
   tbl.cmap.push(0,0);
   tbl.cmap.push(0,3);
+  tbl.cmap.push(...u32(CMAP_SUB_OFFSET));
+  tbl.cmap.push(0,3);
+  tbl.cmap.push(0,1);
   tbl.cmap.push(...u32(CMAP_SUB_OFFSET));
 
   let sub4start = tbl.cmap.length;
@@ -243,8 +243,8 @@ function encode_ttf(info,glyphs,kerning){
   }
 
   add_name(0,info.copyright??"Copyright notice");
-  add_name(1,info.family);
-  add_name(2,info.style);
+  add_name(1,info.family+' '+info.style);
+  add_name(2,'Regular');
   add_name(3,info.family+' '+info.style);
   add_name(4,info.family+' '+info.style);
   add_name(5,info.version??"0.0");
@@ -372,10 +372,10 @@ function encode_ttf(info,glyphs,kerning){
   tbl['OS/2'].push(0,0);
   tbl['OS/2'].push(0,0,0,0,0,0,0,0,0,0);
 
-  tbl['OS/2'].push(0,0,0,1);
-  tbl['OS/2'].push(0,0,0,0);
-  tbl['OS/2'].push(0,0,0,0);
-  tbl['OS/2'].push(0,0,0,0);
+  tbl['OS/2'].push(0xFF,0xFF,0xFF,0xFF);
+  tbl['OS/2'].push(0xFF,0xFF,0xFF,0xFF);
+  tbl['OS/2'].push(0xFF,0xFF,0xFF,0xFF);
+  tbl['OS/2'].push(0x07,0xFF,0xFF,0xFF);
 
   tbl['OS/2'].push(0x70,0x77,0x6e,0x64);
   tbl['OS/2'].push(0,0b0100_0000);
@@ -388,8 +388,8 @@ function encode_ttf(info,glyphs,kerning){
   tbl['OS/2'].push(...u16(info.asc));
   tbl['OS/2'].push(...u16(-info.dsc));
 
-  tbl['OS/2'].push(0,0,0,1);
-  tbl['OS/2'].push(0,0,0,0);
+  tbl['OS/2'].push(0x00,0x3F,0x01,0xFF);
+  tbl['OS/2'].push(0xFF,0xFF,0x00,0x00);
 
 
   // let bytes = [0,1,0,0];
