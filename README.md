@@ -21,6 +21,8 @@ You can download the fonts with preset styles from [Releases](https://github.com
 - [ComputerGrassRunning.ttf](https://github.com/LingDong-/computer-grass/releases) 擬草體·行
 - [ComputerGrassGrass.ttf](https://github.com/LingDong-/computer-grass/releases) 擬草體·草
 
+6000+ statistically most frequent Traditional Chinese characters are included in these precompiled fonts for a reasonably-sized file (and for fast iteration). However, the process can be applied to the entirety of the input data (9K+ TC+SC characters) to create a more comprehensive font, see below:
+
 ### Generate from Scratch
 
 - Install the [Dither programming language](https://github.com/LingDong-/dither-lang), and node.js
@@ -63,6 +65,14 @@ All samples below (as well as the banner image) are typeset with fonts created w
 - As all characters are batch processed with the same rules + physics-based system, some characters can have minor defects or appear less aesthetically pleasing than others.
 
 Obviously it is difficult to match the artistic and aesthetic value of calligraphic masterpieces in history. Nevertheless the author believes that the program presents interesting techniques and results, and with additional manual labelling of data, or with a semi-automated workflow, most shortcomings may very well be overcome.
+
+## See Also
+
+This is part of a series of typographic experiments. Check out the other ones below:
+
+| [Duct Tape](https://github.com/LingDong-/duct-tape-font/) | [Bad Cut](https://github.com/LingDong-/bad-cut-font/) |
+|---|---|
+| [![](screenshots/ln1.png)](https://github.com/LingDong-/duct-tape-font/)  | [![](screenshots/ln2.png)](https://github.com/LingDong-/bad-cut-font/) |
 
 -------
 
